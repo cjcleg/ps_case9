@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+
+    Chapter 1 Case Project 
+
+    Author: Carla Cleghorn
+    Date: 2-16-21
+
+    Filename: index.html
+
+  -->
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+  <script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
+  <script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
+  <meta charset="utf-8" />
+  <title>The Plant Shoppe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/tbf4rqo.css">
+
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+          <a class="logo" title="The Plant Shoppe" href="index.html"> <img src="logo.jpg" alt="logo"> </a>
+      </h1>
+   </header>
+
+   <nav>
+      <ul>
+        <li>
+          <a title="Home" id= "home" class="active" href="index.html">HOME</a>
+        </li>
+
+        <li>
+         <a title="Shop" id= "shop" href="shop.html">SHOP</a>
+        </li>
+
+         <li>
+         <a title="Care" id= "care" href="care.html">CARE + TIPS</a>
+        </li>
+
+        <li>
+          <a title="About Us" id="about" href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+          <a title="Contact" id= "contact" href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="map"></div>
+    <p id="mapp"><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
+    
+    <button onclick="getLocation()">Click Here</button>
+
+    <table id="mapTable">
+      <tr>
+        <td id="latLabel">Latitude</td>
+        <td id="lat"></td>
+      </tr>
+      <tr>
+        <td id="longLabel">Longitude</td>
+        <td id="long"></td>
+      </tr>
+      <tr>
+        <td id="altLabel">Altitude</td>
+        <td id="alt"></td>
+      </tr>
+    </table>
+    <div id="geo"></div>
+
+    <!--button to display window with chapter 5 case work
+
+    <input type="button" class="five" id="submit" value="Click Here" onclick= "window.open('five.html', 'mywindow', 'width=300', 'height=100')"/>
+-->
+    <!--section to display case study 4 work--> 
+    <section class="link">
+      <p> Head to the <a href="contact.html">contact</a> page to order a plant-o-gram! </p>
+    </section>
+    
+    
+
+    <!--<h2>Check out our new and improved plant selection <a href="shop.html"> here!</a></h2>-->
+
+    <main>
+      <div id="container">
+        <img src="plant1.jpg" alt="tropical leaves">
+        <img src="plant2.jpg" alt="houseplants">
+        <img src="plant4.jpg" alt="monstera leaves"> 
+      </div>
+    <!--create an section to display the plant of the day--> 
+    <section class="day">
+      <h3>Plant Of the Day: </h3>
+      <p id="day"></p> <!--place to output information based on results of the conditional statement -->
+    </section>  
+     
+    </main>
+
+    <footer>
+      carlajcleghorn@gmail.com &copy; The Plant Shoppe. This site is for educational purposes only. 
+    </footer>
+
+       <!--<script>
+   
+      /*create function processInput*/ 
+      function processInput(){
+        /*declare variables to dictate size of the window*/
+        var propWidth = 600; 
+        var propHeight = 200; 
+        /*use screen object properties to center window*/
+        var winLeft = ((screen.width - propWidth)/2);
+        var winTop = ((screen.height - propHeight)/2);
+        var winOptions = "width = 600, height= 200"; 
+        winOptions += ",left=" + winLeft; 
+        winOptions += ",top=" + winTop;
+        window.open("five.htm", "window", winOptions);
+      }
+
+      /*create event listener to open five.html and run function to center it*/
+     function createEventListener() {
+      /*create var submitButton and assign it the value of document element w id "submit"*/ 
+      var submitButton = document.getElementById("submit"); 
+      /*if else if loop to run process input function when submit button is clicked */
+      if (submitButton.addEventListener) {
+        submitButton.addEventListener("click", processInput, false); 
+      } else if (submitButton.attachEvent) {
+        submitButton.attachEvent("onclick", processInput);
+      }
+
+      /*if else if loop to run createeventlistener function on load*/ 
+
+      if(window.addEventListener){
+        window.addEventListener("load", createEventListener, false); 
+      } else if (window.attachEvent){
+        attachEvent("onload", createEventListener); 
+      }
+     }
+   </script>-->
+
+
+
+   <script type="text/javascript">
+    //script to find and display latitude longitude and altitude on the page below map 
+    //defining global variables, x for purposes of calling the function and long, lat and alt to store returned objects in 
+    const x = document.getElementById("geo");
+    var long = document.getElementById("long");
+    var lat = document.getElementById("lat");
+    var alt = document.getElementById("alt"); 
+
+    //function to use the navigator.geolocation object to find location and run the display function if allowed by privacy measures or display an error msg 
+
+    function getLocation(){
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    //function to display found position in relevant HTML ID spaces
+
+    function showPosition(position){
+      lat.innerHTML = position.coords.latitude;
+      long.innerHTML = position.coords.longitude;  
+      alt.innerHTML = position.coords.altitude; 
+      //var to assign found position lat and long to an array for map display
+      var coordsArray = [position.coords.latitude , position.coords.longitude];
+      //Creates the map object with the intended coordinates and sets zoom level to 14
+      var map = L.map('map').setView(coordsArray, 14);
+      //Creates the required WebGL metadata and chains it to the map object
+      var gl = L.mapboxGL({
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
+      accessToken: 'not-needed',
+      style: 'https://api.maptiler.com/maps/streets/style.json?key=qZjWTwtNTmBxDi3ZpTB5'
+      }).addTo(map);
+      //Creates the marker for the intended coordinates and chains it to the map object
+      var marker = L.marker(coordsArray).addTo(map);
+    }
+    
+   </script>
+
+    <script src="plants2.js"></script>
+</body>
+</html>

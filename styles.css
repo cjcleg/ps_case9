@@ -1,0 +1,476 @@
+/*
+
+	Chapter 8 Case Project 
+
+    Author: Carla Cleghorn
+    Date: 7-12-21
+
+    Filename: styles.css
+
+    class = .class
+    id = #ID
+
+*/ 
+
+header img{
+	padding: 10px; 
+	display: block;
+	height: 120px;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:0;
+	padding-top:0;
+}
+
+/*styles for nav bar*/ 
+
+nav{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+	text-decoration: none;
+	font-size:16px;
+	list-style-type: none;
+	margin-bottom:10px;
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+nav li{
+	display: inline; 
+	text-decoration: none;
+	margin: 2px;
+}
+
+nav a{
+	display: inline-block;
+	padding-left: 30px;
+	padding-right: 35px; 
+	padding-top:10px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 16px;
+	color: black;
+}
+
+/*styles for active page on nav bar*/ 
+
+.active{
+	font-weight: 600;
+	background: #F99595;
+}
+
+.five{
+	display:block;
+	text-align: center;
+	margin-left:auto; 
+	margin-right:auto;
+}
+
+/*styling for section and paragraph on home page that lists 'plant of the day' from result of showDate function */ 
+#day{
+	text-align: center; 
+}
+
+section h3{
+	font-family: lust-script, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	text-align: center;
+	padding-left:0;
+	padding-right:0;
+	padding-top: 10px;
+	padding-bottom:5px;
+	margin:0;
+}
+
+section p {
+	margin-top: 0;
+	font-size: 18px;
+	font-weight: bold; 
+}
+
+
+section{
+	background: #F99595;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+/*styles for home page images*/
+
+main img{
+	width: 25%;
+	display: inline-block;
+	padding: 30px;
+}
+
+#container{
+	padding-left: 10%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*style for shop page header*/ 
+h1{
+	font-family: lust-script, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+}
+
+form {
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	text-align: center;
+}
+
+h2{
+	margin-left: 40px;
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	text-align: center;
+}
+
+form img{
+	display: block; 
+	margin-left:auto;
+	margin-right: auto;
+	height:30%;
+	width: 30%;
+}
+
+
+form li{
+	list-style-type: none;
+	text-align:center;
+	padding: 10px;
+}
+
+/*#col1{
+	width: 50%;
+	display: inline-block;
+}
+
+#col2{
+	width:50%;
+	float: left;
+}*/
+
+#submit {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px; 
+	margin-top: 0px;
+	background-color: #F99595;
+	border: none;
+	padding: 10px; 
+	text-align: center;
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	font-style: normal;
+}
+
+/*style for care page p*/ 
+p{
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+/*style for About page */
+
+article{
+	display: inline;
+}
+
+#pic{
+	width:40%;
+}
+article p{
+	width: 40%; 
+	float: right;
+}
+
+footer{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center; 
+	padding: 10px;
+	font-size: 16px;
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+/*styling for section and paragraph on home page that lists 'plant of the day' from result of showDate function */ 
+#day{
+	text-align: center; 
+}
+
+.link{
+	text-align: center; 
+}
+.link a{
+	text-decoration: none;
+	background-color: #cf7c7c; 
+	color: black;
+	padding: 3px;
+}
+
+section h3{
+	font-family: lust-script, sans-serif;
+	font-size: 30px;
+	font-style: normal;
+	text-align: center;
+	padding-left:0;
+	padding-right:0;
+	padding-top: 10px;
+	padding-bottom:5px;
+	margin:0;
+}
+
+section p {
+	margin-top: 0;
+	font-size: 18px;
+	font-weight: bold; 
+}
+
+
+section{
+	background: #F99595;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+/*styling for contact page form*/ 
+
+.contact {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+}
+
+.contact h1 {
+	font-size: 30px;
+}
+
+.contact form {
+	margin-left: 20%;
+	margin-right: 30%;
+	display: grid;
+	grid-template-columns: 15% 1fr; 
+	grid-gap: 8px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.contact label{
+	font-family: basic-sans, sans-serif;
+	font-size: 18px;
+	padding: 2px;
+	grid-column: 1/2;
+	
+}
+
+.contact input{
+	grid-column: 2/3;
+	height: 22px;
+}
+
+.contact textarea{
+	margin-top:0px;
+	height: 100px;
+}
+
+.contact #submit {
+	margin-top: 15px;
+	background-color: #cf7c7c; 
+	width: 80px;
+	height: 40px;
+}
+
+.contact #plants{
+	width: 30%;
+	margin-top: 20px;
+	margin-bottom:0px;
+}
+
+#disErr{
+	text-align: center;
+}
+
+#nameError text{
+	font-weight: bold;
+	background-color: #e05a5a; 
+}
+
+/*styling for form for ch 7 case study:*/ 
+
+
+
+.care {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+}
+
+#formd {
+	text-align:center;
+
+}
+
+.care label {
+	font-family: basic-sans, sans-serif;
+	font-size: 18px;
+	padding: 2px;
+	display:block;
+	margin: 28px;
+	margin-top:17px;
+	text-align: center;
+	/*grid-column: 1/2;
+	float:left;
+	*/
+}
+
+.care form{
+	background:#F99595;
+	border:none;
+	padding:20px;
+	clear: all;
+	display:inline-block;
+	width: 60%;
+
+}
+
+.care input{
+	/*grid-column: 2/3;*/
+	height: 23px;
+	float: right;
+	display: block;
+	margin: 20px;
+	/*margin-bottom:22px;*/
+}
+#checklistHeader{
+	margin-top:60px;
+	padding: 15px;
+}
+#checklist {
+	text-align: center;
+	padding:2px;
+	margin-right:90px;
+}
+
+#checklist label{
+	margin: 5px;
+}
+
+input[type=checkbox]{
+	margin: 5px;
+}
+
+.col{
+	float:left;
+	width:45%;
+	margin-bottom:10px;
+}
+
+.row:after {
+	content: "";
+	display: table; 
+	clear:both;
+
+}
+
+.care #addPlant{
+	float: right;
+	background-color: #cf7c7c; 
+	width: 80px;
+	height: 40px;
+	border: none;
+}
+
+
+table, th, td {
+	
+	border: 1px solid black;
+
+}
+table{
+	margin-top: 10px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+}
+
+th{
+	font-family: basic-sans, sans-serif;
+	font-size: 18px;
+	padding: 2px;
+	background: #cf7c7c;
+}
+
+tr{
+	background: #F99595;
+	font-family: basic-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.row{
+	margin-left:10%;
+}
+
+#col2 {
+	float: left;
+	width:40%;
+}
+
+#checkDisplay{
+	list-style-type: none; 
+	text-align: center; 
+
+}
+
+#map {
+	min-height:300px;
+	width:500px;
+	background-color: pink;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mapp {
+	text-align: center; 
+}
+#mapTable tr, td{
+	border: none;
+	padding:5px;
+}
+table{
+	border:none;
+}
+button{
+	margin:50px;
+	margin-left: 46%;
+	margin-top: 15px;
+	background-color: #cf7c7c; 
+	width: 80px;
+	height: 40px;
+	border: none;
+}

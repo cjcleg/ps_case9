@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+
+    Chapter 8 Case Project 
+
+    Author: Carla Cleghorn
+    Date: 7- 12 - 21
+
+    Filename: care.html
+
+  -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>The Plant Shoppe</title>
+   <link rel="stylesheet" href="styles.css" />
+   <link rel="stylesheet" href="https://use.typekit.net/tbf4rqo.css">
+   <script src="modernizr.custom.05819.js"></script>
+   <script src="care.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+          <a class="logo" title="The Plant Shoppe" href="index.html"> <img src="logo.jpg" alt="logo"> </a>
+      </h1>
+   </header>
+
+   <nav>
+      <ul>
+        <li>
+          <a title="Home" id= "home" href="index.html">HOME</a>
+        </li>
+
+        <li>
+         <a title="Shop" id= "shop"  href="shop.html">SHOP</a>
+        </li>
+
+         <li>
+         <a title="Care" id= "care" class="active" href="care.html">CARE + TIPS</a>
+        </li>
+
+        <li>
+          <a title="About Us" id="about" href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+          <a title="Contact" id= "contact" href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="care">
+      <h1>
+        Help Us Help You!
+      </h1>
+      <p>We want to provide the most relevant and helpful information, so please fill out the following survey to help us get some insight into what plants you want to hear about most!</p>
+
+     <!-- <div class="row">
+        <div id="col">-->
+          <h2 id="tableHeader">Plant Survey</h2>
+      
+          <div id="formd">
+            <form >
+              <div class="row">
+                <div class= "col">
+                  <label for="yname">Your Name: </label> 
+                  <label for="pname">Your Favorite Plant: </label>
+                  <label for="reason">Why do you love this plant? </label>
+                </div>
+                <div class= "col">
+                  <input type="text" id="yname" /><br>
+                  <input type="text" id="pname" /><br>
+                  <input type="text" id="reason" /><br>
+                </div>
+             
+                <div id="checklist">
+                  <h3 id="checklistHeader">checklist prompt?</h3>
+                  <input type="checkbox" id="one" name="boxes" value="1">
+                  <label for="one"> first option</label><br>
+                  <input type="checkbox" id="two" name="boxes" value="2">
+                  <label for="two"> second option</label><br>
+                  <input type="checkbox" id="three" name="boxes" value="3">
+                  <label for="three"> third option</label><br>
+                  <input type="checkbox" id="four" name="boxes" value="4">
+                  <label for="four"> fourth option</label><br>
+                  <input type="checkbox" id="five" name="boxes" value="5">
+                  <label for="five"> fifth option</label><br> 
+                </div>
+              </div> 
+              <input type="button" onclick="createPlant()" onclick="createChecks()" value="add" id="addPlant"/> 
+            </form>
+          </div>
+       
+          <div id="checkDisplay">
+            <p id="displayHere"></p>
+            
+          </div>
+
+      <table id="plantDisplay">
+        <tr>
+          <th>Your Name</th>
+          <th>Your Plant</th>
+          <th>Your Reason</th>
+        </tr>
+      </table>
+      
+    </main>
+
+    <footer>
+      carlajcleghorn@gmail.com &copy; The Plant Shoppe. This site is for educational purposes only. 
+    </footer>
+    
+    <script type="text/javascript">
+      "use strict"; 
+      //global variable for checks array
+      var checks = []; 
+      var arrayString;
+      
+      //create fucntion to call that will display array selection
+      function displayChecks(event) {
+        if (event === undefined) {
+          event = window.event; 
+        }
+        var callerElement = event.target || event.srcElement;  
+        var checkName = callerElement.value; 
+        //checks if the box has been checked, push value into lodging array
+        if (callerElement.checked) {
+          checks.push(checkName);
+          //create variable to display value in display section
+          var newChecks = document.createElement("li");
+          newChecks.innerHTML = checkName;
+          document.getElementById("displayHere").appendChild(newChecks);
+          //make display sections visible
+          document.getElementById("checkDisplay").style.display = "block";
+        } else { //if box has been unchecked
+          var boxItems = document.querySelectorAll("#displayHere li");
+          for (var i = 0; i < boxItems.length; i++){
+            if (boxItems[i].innerHTML === checkName) { 
+              //remove element at index i from array 
+              checks.splice(i,1);
+              boxItems[i].parentNode.removeChild(boxItems[i]);
+              break; 
+            }
+          }
+
+        }
+      }
+      //convert array to string
+      function convertToString(){
+        arrayString = checks.toString();
+
+
+      }   
+
+      function createChecks(){
+        //assign input values from checklist into variable
+        var boxes = document.getElementsByName("boxes");
+        //loops to check if box selection has changed and runs displayCheck if so 
+        if (boxes[0].addEventListener) { 
+          for (var i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener("change", displayChecks, false);
+          }
+        } else if (boxes[0].attachEvent) {
+          for (var i = 0; i < boxes.length; i++) {
+            boxes[i].attachEvent("onchange", displayChecks); 
+          } 
+        }
+        //create event listener to call convertToString upon click
+        var button = document.getElementById("addPlant");
+        if (button.addEventListener) {
+          button.addEventListener("click", convertToString, false);
+        } else if (button.attachEvent) {
+          button.attachEvent("onclick", convertToString)
+        }
+      }
+  
+
+       //create event listener that runs createCheck function upon loading  
+       if (window.addEventListener) {
+         window.addEventListener("load", createChecks, false);
+       } else if (window.attachEvent){
+         window.attachEvent("onload" , createChecks);
+       }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

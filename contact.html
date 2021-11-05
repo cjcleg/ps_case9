@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+
+    Case Project 
+
+    Author: Carla Cleghorn
+    Date: 2-8-21
+
+    Filename: contact.html
+
+  -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>The Plant Shoppe</title>
+   <link rel="stylesheet" href="styles.css" />
+   <link rel="stylesheet" href="https://use.typekit.net/tbf4rqo.css">
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+          <a class="logo" title="The Plant Shoppe" href="index.html"> <img src="logo.jpg" alt="logo"> </a>
+      </h1>
+   </header>
+
+   <nav>
+      <ul>
+        <li>
+          <a title="Home" id= "home" href="index.html">HOME</a>
+        </li>
+
+        <li>
+         <a title="Shop" id= "shop"  href="shop.html">SHOP</a>
+        </li>
+
+         <li>
+         <a title="Care" id= "care"  href="care.html">CARE + TIPS</a>
+        </li>
+
+        <li>
+          <a title="About Us" id="about"  href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+          <a title="Contact" id= "contact" class="active" href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="contact">
+        <h1> Send a plant-o-gram!</h1>
+        <p>A plant-o-gram is a unique gift for plant care experts and enthusiasts alike! Pick your plant, add a message and create a one of a kind gift that's sure to make anyone smile.</p>
+
+        <p id="disErr"></p><br>
+        <!--onsubmit event runs validate function upon submission-->
+        <form action="results.html" onsubmit= "validate()" novalidate ><!--novalidate--use if you decide to do custom js validation -->
+          
+          <label for="name"> Name: </label> 
+          <input type="text" id="name" name="name" required="required"><br>
+          <span id="nameError"></span>
+
+          <label for="email"> Email: </label>
+          <input type="email" id="email" name="email"><br>
+          <span id="emailError"></span>
+
+          <span id="plantError"></span> 
+          <select id="plants" name="Plants" required="required">
+            <option value="">choose a plant:</option>
+            <option value="pilea">Pilea</option>
+            <option value="echeveria">Echeveria</option>
+            <option value="prayer">Prayer Plant</option>
+            <option value="monstera">Monstera</option>
+            <option value="rattlesnake">Rattlesnake Calathea</option>
+            <option value="string">String of Pearls</option>
+            <option value="fern">Bird's Nest Fern</option>
+            <option value="pothos">Golden Pothos</option>
+          </select><br>
+           
+          <label for="address">Address:</label>
+          <input type="address" name="address" id="address"></input><br> 
+          <span id="addressError"></span>
+
+          <label for="message">Message: </label>
+          <textarea name="message" id="message"></textarea><br>
+          <span id="messageError"></span>
+
+          <input type="submit" id="submit" value="send">
+        
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      carlajcleghorn@gmail.com &copy; The Plant Shoppe. This site is for educational purposes only. 
+    </footer>
+
+    <script src="six.js"></script>
+    <script>
+      
+      function validate() {
+        //set variables to retrieve input from form 
+        var name = document.getElementById('name').value; 
+        var email = document.getElementById('email').value; 
+        var message = document.getElementById('message').value;
+
+        //set variables assigned to regex patterns of the respective kind 
+        var emailPattern = /^[_a-zA-Z0-9\-]+(\.[_a-zA-Z0-9\-]+)*@[_a-zA-Z0-9\-]+(\.[_a-zA-Z0-9\-]+)*(\.[a-z]{2,6})$/;
+        var namePattern = /^[a-z ,.'-]+$/;
+        var messagePattern = /\w{5,30}/;
+        //assign var to hold the result of testing input values against regex
+        var nameRes = namePattern.test(name);
+        var emailRes = emailPattern.test(email); 
+        var messageRes = messagePattern.test(message); 
+        //if statement to return the results of the validations 
+        if (nameRes == false){
+          alert('please enter a valid name');
+          return false;
+        }
+        if (emailRes == false){
+          alert('please enter a valid email address');
+        }
+        return false; 
+        if (messageRes == false) {
+          alert('please ensure your message is between 5 and 30 characters');
+          return false;
+        }
+        return true; 
+      }
+    </script>
+
+  
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+
+    Chapter 1 Case Project 
+
+    Author: Carla Cleghorn
+    Date: 1-15-20
+
+    Filename: shop.html
+
+  -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>The Plant Shoppe</title>
+   <link rel="stylesheet" href="styles.css" />
+   <link rel="stylesheet" href="https://use.typekit.net/tbf4rqo.css">
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+          <a class="logo" title="The Plant Shoppe" href="index.html"> <img src="logo.jpg" alt="logo"> </a>
+      </h1>
+   </header>
+
+   <nav>
+      <ul>
+        <li>
+          <a title="Home" id= "home" href="index.html">HOME</a>
+        </li>
+
+        <li>
+         <a title="Shop" id= "shop" class="active" href="shop.html">SHOP</a>
+        </li>
+
+         <li>
+         <a title="Care" id= "care" href="care.html">CARE + TIPS</a>
+        </li>
+
+        <li>
+          <a title="About Us" id="about" href="about.html">ABOUT</a>
+        </li>
+
+        <li>
+          <a title="Contact" id= "contact" href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>
+        Let us help you find your perfect plant!
+      </h1>
+
+      <div class="shop">
+        <h2>Currently Available</h2>
+        <form>
+          <ul>
+            <div id="col1">
+              <li>
+                <input type="checkbox" id="plant1" value="5" />
+                <label for="plant1"> Succulent Echeveria Misc. - $5.00)</label>
+                <label for="plant1"> <img src="succ.jpg" alt="a echeveria succulent plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant2" value="20" />
+                <label for="plant2"> Monstera Adansonii - $20.00</label>
+                <label for="plant2"> <img src="monster.jpg" alt="a monstera swiss cheese plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant3" value="5" />
+                <label for="plant3"> String of Pearls - $5.00</label>
+                <label for="plant3"> <img src="pearls.jpg" alt="a string of pearls succulent plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant4" value="15" />
+                <label for="plant4"> Golden Pothos - $15.00</label>
+                <label for="plant4"> <img src="gold.jpg" alt="a pothos plant"></label>
+              </li>
+            </div>
+
+            <div id="col2">
+              <li>
+                <input type="checkbox" id="plant5" value="20" />
+                <label for="plant5"> Pilea Peperomioides - $20.00</label>
+                <label for="plant5"> <img src="pilea.jpeg" alt="a pilea plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant6" value="15" />
+                <label for="plant6"> Maranta Red Prayer Plant - $15.00</label>
+                <label for="plant6"> <img src="prayer.jpeg" alt="a red prayer plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant7" value="13" />
+                <label for="plant7"> Calathea Rattlesnake - $13.00</label>
+                <label for="plant7"> <img src="snake.jpeg" alt="a rattlesnake calathea plant"></label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plant8" value="10" />
+                <label for="plant8">Birds Nest Fern - $10.00</label>
+                <label for="plant8"> <img src="fern.jpg" alt="a birds nest fern plant"></label>
+              </li>
+          </div>
+          </ul>
+
+          <input type="button" id="submit" value="Submit" />
+
+          <p>Your order total is: $</p><p id="total"> </p>
+
+        </form>
+      </div>
+
+    </main>
+
+    <footer>
+      carlajcleghorn@gmail.com &copy; The Plant Shoppe. This site is for educational purposes only. 
+    </footer>
+    <script>
+      function showTotal() {
+         var itemTotal = 0;
+         var item1 = document.getElementById("plant1");
+         var item2 = document.getElementById("plant2");
+         var item3 = document.getElementById("plant3");
+         var item4 = document.getElementById("plant4");
+         var item5 = document.getElementById("plant5");
+         var item6 = document.getElementById("plant6");
+         var item7 = document.getElementById("plant7");
+         var item8 = document.getElementById("plant8");
+         (item1.checked) ? (itemTotal += 5) : (itemTotal += 0);
+         (item2.checked) ? (itemTotal += 20) : (itemTotal += 0);
+         (item3.checked) ? (itemTotal += 5) : (itemTotal += 0);
+         (item4.checked) ? (itemTotal += 15) : (itemTotal += 0);
+         (item5.checked) ? (itemTotal += 20) : (itemTotal += 0);
+         (item6.checked) ? (itemTotal += 15) : (itemTotal += 0);
+         (item7.checked) ? (itemTotal += 13) : (itemTotal += 0);
+         (item8.checked) ? (itemTotal += 10) : (itemTotal += 0);
+         var salesTaxRate = 0.07;
+         itemTotal *= 100; 
+         var orderTotal = (itemTotal + (itemTotal * salesTaxRate))/100;
+         document.getElementById("total").innerHTML = orderTotal;
+      }
+
+      document.getElementById("submit").addEventListener("click", showTotal, false);
+      
+    </script>
+</body>
+</html>
